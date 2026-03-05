@@ -23,9 +23,10 @@ class SecondActivity : ComponentActivity() {
         setContent {
             VKEducationTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    val intent = intent
+                    val messageFromFirstActivity =
+                        intent.getStringExtra("secondActivityMessage") ?: ""
                     SecondScreen(
-                        intent = intent,
+                        message = messageFromFirstActivity,
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -35,15 +36,13 @@ class SecondActivity : ComponentActivity() {
 }
 
 @Composable
-fun SecondScreen(intent: Intent, modifier: Modifier = Modifier) {
-
-    val text = intent.getStringExtra("secondActivityMessage") ?: ""
+fun SecondScreen(message: String, modifier: Modifier = Modifier) {
 
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier.fillMaxSize(),
     ) {
-        Text(text = text)
+        Text(text = message)
     }
 }

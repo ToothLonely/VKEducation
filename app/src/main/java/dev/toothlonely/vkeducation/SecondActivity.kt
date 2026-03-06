@@ -34,15 +34,3 @@ class SecondActivity : ComponentActivity() {
         }
     }
 }
-
-@Composable
-fun SecondScreen(message: String, modifier: Modifier = Modifier) {
-
-    Column(
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier.fillMaxSize(),
-    ) {
-        Text(text = message)
-    }
-}

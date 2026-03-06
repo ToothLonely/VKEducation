@@ -2,6 +2,7 @@ package dev.toothlonely.vkeducation
 
 import android.content.Context
 import android.content.Intent
+import android.widget.Toast
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -46,6 +47,7 @@ fun FirstScreen(modifier: Modifier = Modifier) {
     var text by remember { mutableStateOf("") }
     val context = LocalContext.current
     val phoneNumber = rememberTextFieldState()
+    val invalidPhoneNumber = stringResource(R.string.invalid_phone_number)
 
     Column(
         verticalArrangement = Arrangement.SpaceEvenly,
@@ -131,7 +133,7 @@ fun FirstScreen(modifier: Modifier = Modifier) {
 
             Button(
                 onClick = {
-                    openPhoneCall(context, phoneNumber.text as String)
+                    openPhoneCall(context, phoneNumber.text as String, invalidPhoneNumber)
                 }
             ) {
                 Text(stringResource(R.string.make_phone_call))
@@ -148,11 +150,23 @@ private fun openSecondActivity(context: Context, message: String) {
     context.startActivity(intent)
 }
 
-private fun openPhoneCall(context: Context, phoneNumber: String) {
+private fun openPhoneCall(context: Context, phoneNumber: String, invalidPhoneNumber: String) {
+
+    if (phoneNumber.length != 10 || phoneNumber.first() != '9') {
+        Toast.makeText(
+            context,
+            invalidPhoneNumber,
+            Toast.LENGTH_SHORT
+        ).show()
+        return
+    }
+
     val intent = Intent(Intent.ACTION_DIAL).apply {
         data = "tel:$phoneNumber".toUri()
     }
-    context.startActivity(intent)
+    if (intent.resolveActivity(context.packageManager) != null) {
+        context.startActivity(intent)
+    }
 }
 
 private fun shareText(context: Context, text: String) {
@@ -160,7 +174,9 @@ private fun shareText(context: Context, text: String) {
         type = "text/plain"
         putExtra(Intent.EXTRA_TEXT, text)
     }
-    context.startActivity(intent)
+    if (intent.resolveActivity(context.packageManager) != null) {
+        context.startActivity(intent)
+    }
 }
 
 @Preview(showBackground = true)

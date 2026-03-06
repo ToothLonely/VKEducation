@@ -8,4 +8,5 @@
     <string name="number_input_field_label">Введите номер телефона</string>
     <string name="make_phone_call">Позвонить другу</string>
     <string name="empty_message_placeholder">Было передано пустое сообщение</string>
+    <string name="invalid_phone_number">Некорректный номер, попробуйте снова</string>
 </resources>

@@ -10,14 +10,17 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import dev.toothlonely.vkeducation.ui.theme.VKEducationTheme
 
-class MainActivity : ComponentActivity() {
+class SecondActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             VKEducationTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    FirstScreen(
+                    val messageFromFirstActivity =
+                        intent.getStringExtra(MESSAGE_TAG) ?: ""
+                    SecondScreen(
+                        message = messageFromFirstActivity,
                         modifier = Modifier.padding(innerPadding)
                     )
                 }

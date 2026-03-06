@@ -24,7 +24,7 @@ class SecondActivity : ComponentActivity() {
             VKEducationTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     val messageFromFirstActivity =
-                        intent.getStringExtra("secondActivityMessage") ?: ""
+                        intent.getStringExtra(MESSAGE_TAG) ?: ""
                     SecondScreen(
                         message = messageFromFirstActivity,
                         modifier = Modifier.padding(innerPadding)

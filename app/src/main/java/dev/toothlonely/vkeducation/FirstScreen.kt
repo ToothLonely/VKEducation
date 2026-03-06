@@ -38,6 +38,8 @@ import androidx.core.net.toUri
 import androidx.core.text.isDigitsOnly
 import dev.toothlonely.vkeducation.ui.theme.VKEducationTheme
 
+const val MESSAGE_TAG = "secondActivityMessage"
+
 @Composable
 fun FirstScreen(modifier: Modifier = Modifier) {
 
@@ -68,7 +70,7 @@ fun FirstScreen(modifier: Modifier = Modifier) {
                     text = it
                 },
                 label = {
-                    Text(text = stringResource(R.string.edit_text_placeholder))
+                    Text(text = stringResource(R.string.text_input_field_label))
                 }
             )
 
@@ -82,14 +84,14 @@ fun FirstScreen(modifier: Modifier = Modifier) {
                     },
                     modifier = Modifier.width(150.dp)
                 ) {
-                    Text("Открыть вторую Activity")
+                    Text(stringResource(R.string.open_second_activity))
                 }
 
                 Button(
                     onClick = { shareText(context, text) },
                     modifier = Modifier.width(150.dp)
                 ) {
-                    Text("Поделиться через...")
+                    Text(stringResource(R.string.share_via))
                 }
             }
         }
@@ -119,9 +121,11 @@ fun FirstScreen(modifier: Modifier = Modifier) {
                     if (length > 4) insert(4, ")")
                     if (length > 8) insert(8, "-")
                 },
-                prefix = { Text("+7") },
+                prefix = {
+                    Text(stringResource(R.string.phone_number_prefix))
+                },
                 label = {
-                    Text("Введите номер телефона")
+                    Text(stringResource(R.string.number_input_field_label))
                 }
             )
 
@@ -130,7 +134,7 @@ fun FirstScreen(modifier: Modifier = Modifier) {
                     openPhoneCall(context, phoneNumber.text as String)
                 }
             ) {
-                Text("Позвонить другу")
+                Text(stringResource(R.string.make_phone_call))
             }
         }
 
@@ -139,7 +143,7 @@ fun FirstScreen(modifier: Modifier = Modifier) {
 
 private fun openSecondActivity(context: Context, message: String) {
     val intent = Intent(context, SecondActivity::class.java).apply {
-        putExtra("secondActivityMessage", message)
+        putExtra(MESSAGE_TAG, message)
     }
     context.startActivity(intent)
 }

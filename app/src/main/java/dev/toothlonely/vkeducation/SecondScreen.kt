@@ -8,6 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 
 @Composable
 fun SecondScreen(message: String, modifier: Modifier = Modifier) {
@@ -21,6 +22,6 @@ fun SecondScreen(message: String, modifier: Modifier = Modifier) {
             value = message,
             onValueChange = {},
             readOnly = true,
-            placeholder = { Text("Было передано пустое сообщение") })
+            placeholder = { Text(stringResource(R.string.empty_message_placeholder)) })
     }
 }

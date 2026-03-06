@@ -9,8 +9,11 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.input.InputTransformation
 import androidx.compose.foundation.text.input.OutputTransformation
@@ -34,6 +37,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.core.text.isDigitsOnly
 import dev.toothlonely.vkeducation.ui.theme.VKEducationTheme
 import androidx.core.net.toUri
@@ -79,12 +83,25 @@ fun FirstScreen(modifier: Modifier = Modifier) {
             }
         )
 
-        Button(
-            onClick = {
-                openSecondActivity(context, text)
-            }
+        Row(
+            horizontalArrangement = Arrangement.SpaceAround,
+            modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Открыть вторую Activity")
+            Button(
+                onClick = {
+                    openSecondActivity(context, text)
+                },
+                modifier = Modifier.width(150.dp)
+            ) {
+                Text("Открыть вторую Activity")
+            }
+
+            Button(
+                onClick = { shareText(context, text) },
+                modifier = Modifier.width(150.dp)
+            ) {
+                Text("Поделиться через...")
+            }
         }
 
         OutlinedTextField(
@@ -123,6 +140,14 @@ private fun openSecondActivity(context: Context, message: String) {
 private fun openPhoneCall(context: Context, phoneNumber: String) {
     val intent = Intent(Intent.ACTION_DIAL).apply {
         data = "tel:$phoneNumber".toUri()
+    }
+    context.startActivity(intent)
+}
+
+private fun shareText(context: Context, text: String) {
+    val intent = Intent(Intent.ACTION_SEND).apply {
+        type = "text/plain"
+        putExtra(Intent.EXTRA_TEXT, text)
     }
     context.startActivity(intent)
 }

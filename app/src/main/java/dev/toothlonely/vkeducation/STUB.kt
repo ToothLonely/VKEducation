@@ -2,7 +2,7 @@ package dev.toothlonely.vkeducation
 
 object STUB {
 
-    val apps = listOf(
+    private val apps = listOf(
         AppDetails(
             id = 0,
             imageUrl = "https://picsum.photos/200?1",
@@ -146,4 +146,6 @@ object STUB {
     )
 
     fun getAppById(id: Int) = apps.find { it.id == id }
+
+    fun getAllApps() = apps
 }

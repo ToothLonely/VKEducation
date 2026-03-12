@@ -55,7 +55,7 @@ fun AppsListScreen(modifier: Modifier, onNavigateTo: (Screen) -> Unit = {}) {
                     application = appItem,
                     modifier = Modifier
                         .clickable {
-                            onNavigateTo(Screen.AppDetail(applicationName = appItem.name))
+                            onNavigateTo(Screen.AppDetails(applicationName = appItem.name))
                         }
                 )
 

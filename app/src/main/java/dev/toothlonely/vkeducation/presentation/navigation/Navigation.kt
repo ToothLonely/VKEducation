@@ -17,10 +17,7 @@ sealed interface Screen {
     data object AppsList : Screen
 
     @Serializable
-    data class AppInfo(val applicationId: Int) : Screen
-
-    @Serializable
-    data class AppDetail(val applicationName: String) : Screen
+    data class AppDetails(val applicationName: String) : Screen
 }
 
 @Composable
@@ -38,10 +35,8 @@ fun Navigation(
             }
         }
 
-        composable<Screen.AppDetail> { backStackEntry ->
-/*            val appItem = backStackEntry.toRoute<Screen.AppInfo>()
-            AppInfoScreen(applicationId = appItem.applicationId)*/
-            val appName = backStackEntry.toRoute<Screen.AppDetail>().applicationName
+        composable<Screen.AppDetails> { backStackEntry ->
+            val appName = backStackEntry.toRoute<Screen.AppDetails>().applicationName
             val appItem = STUB.getAppByName(appName)
             AppDetailsScreen()
         }

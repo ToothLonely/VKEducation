@@ -10,7 +10,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import dev.toothlonely.vkeducation.ui.theme.VKEducationTheme
+import dev.toothlonely.vkeducation.presentation.navigation.Navigation
+import dev.toothlonely.vkeducation.presentation.ui.theme.VKEducationTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

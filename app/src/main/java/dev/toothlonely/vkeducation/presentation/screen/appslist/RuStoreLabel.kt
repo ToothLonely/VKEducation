@@ -1,4 +1,4 @@
-package dev.toothlonely.vkeducation
+package dev.toothlonely.vkeducation.presentation.screen.appslist
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -19,9 +19,10 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import dev.toothlonely.vkeducation.R
 
 @Composable
-fun RuStoreIconAndLabel() {
+fun RuStoreLabel() {
 
     val ruStoreLabelTextStyle = TextStyle(
         fontWeight = FontWeight.ExtraBold,

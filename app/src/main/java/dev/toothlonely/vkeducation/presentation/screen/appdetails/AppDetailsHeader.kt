@@ -1,4 +1,4 @@
-package dev.toothlonely.vkeducation
+package dev.toothlonely.vkeducation.presentation.screen.appdetails
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -23,7 +23,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
-import dev.toothlonely.vkeducation.ui.theme.VKEducationTheme
+import dev.toothlonely.vkeducation.domain.App
+import dev.toothlonely.vkeducation.domain.Category
+import dev.toothlonely.vkeducation.R
+import dev.toothlonely.vkeducation.presentation.ui.theme.VKEducationTheme
 import kotlin.math.roundToInt
 
 @Composable

@@ -1,4 +1,4 @@
-package dev.toothlonely.vkeducation
+package dev.toothlonely.vkeducation.presentation.screen.appdetails
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
@@ -20,7 +20,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import dev.toothlonely.vkeducation.ui.theme.VKEducationTheme
+import dev.toothlonely.vkeducation.domain.Category
+import dev.toothlonely.vkeducation.R
+import dev.toothlonely.vkeducation.domain.App
+import dev.toothlonely.vkeducation.presentation.ui.theme.VKEducationTheme
 
 @Composable
 fun AppDetailsScreen(
@@ -111,7 +114,7 @@ private fun getApp(): App = App(
 
 @Preview
 @Composable
-private fun Preview() {
+private fun AppDetailsPreview() {
     VKEducationTheme {
         AppDetailsScreen(
             modifier = Modifier.fillMaxSize(),

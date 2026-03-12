@@ -1,4 +1,4 @@
-package dev.toothlonely.vkeducation
+package dev.toothlonely.vkeducation.presentation.screen.appdetails
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -14,7 +14,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import dev.toothlonely.vkeducation.ui.theme.VKEducationTheme
+import dev.toothlonely.vkeducation.R
+import dev.toothlonely.vkeducation.presentation.ui.theme.VKEducationTheme
 
 @Composable
 fun Developer(
@@ -41,7 +42,7 @@ fun Developer(
 
 @Preview
 @Composable
-private fun Preview() {
+private fun DeveloperPreview() {
     VKEducationTheme {
         Developer(
             name = "VK Play",

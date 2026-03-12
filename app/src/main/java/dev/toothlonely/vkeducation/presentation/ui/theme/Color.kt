@@ -1,4 +1,4 @@
-package dev.toothlonely.vkeducation.ui.theme
+package dev.toothlonely.vkeducation.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package dev.toothlonely.vkeducation
+package dev.toothlonely.vkeducation.presentation.screen.appslist
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

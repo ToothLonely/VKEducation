@@ -1,4 +1,4 @@
-package dev.toothlonely.vkeducation
+package dev.toothlonely.vkeducation.presentation.screen.appslist
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -19,10 +19,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
+import dev.toothlonely.vkeducation.domain.App
 
 @Composable
 fun AppItem(
-    application: AppDetails,
+    application: App,
     modifier: Modifier,
 ) {
 
@@ -48,7 +49,7 @@ fun AppItem(
             .padding(10.dp)
     ) {
         AsyncImage(
-            model = application.imageUrl,
+            model = application.iconUrl,
             contentDescription = application.description,
             modifier = Modifier
                 .clip(shape = RoundedCornerShape(percent = 20))
@@ -71,7 +72,7 @@ fun AppItem(
                 overflow = TextOverflow.Ellipsis
             )
             Text(
-                text = application.category,
+                text = application.category.name,
                 style = applicationCategoryTextStyle
             )
         }
